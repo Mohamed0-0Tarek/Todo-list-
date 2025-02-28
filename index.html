@@ -216,6 +216,7 @@
     </body>
     <script>
         let tasksContainer = document.getElementById("tasksContainer");
+        
 
         function refreshTasks() {
             let tasksString = localStorage.getItem("tasks");
@@ -303,14 +304,13 @@
             let text = prompt("Input your task:", "make the homework");
             if (text != null && text != "") {
                 let d = new Date();
-                taskObject = {
+                let taskObject = {
                     taskText: `${text}`,
                     date: `${d.toLocaleDateString(
                         "en-GB"
                     )} ${d.toLocaleTimeString()}`,
                     isChecked: false,
                 };
-                // ✅ Make sure `tasks` exists
                 tasks = tasks || [];
                 tasks.push(taskObject);
                 storeTasksToLocalStorage();
@@ -347,6 +347,7 @@
         }
 
         let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        
         refreshTasks();
     </script>
 </html>
