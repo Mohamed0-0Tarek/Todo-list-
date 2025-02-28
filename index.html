@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo list</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/9630ca491a.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <style>
+            body {
+                font-family: "Tajawal", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+            button {
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+            button.circular {
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                border: none;
+            }
+            button.edit {
+                color: #fff;
+                background-color: #414cab;
+            }
+            button.check {
+                color: #fff;
+                background-color: #36b61f;
+            }
+            button.delete {
+                color: #fff;
+                background-color: #ab0f0f;
+            }
+            button.options:hover {
+                background-color: #522e91;
+            }
+
+            .border-radius {
+                border-radius: 20px;
+            }
+            .todoText,
+            .date {
+                direction: rtl;
+            }
+            .options {
+                margin: auto 10px;
+            }
+
+            .note {
+                padding: 5px 3px;
+                padding-left: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #ffffff;
+                border-bottom: 2px solid rgb(98, 92, 92);
+                transition: box-shadow 0.2s;
+            }
+            .note:hover {
+                box-shadow: 0px 3px 15px rgb(97, 97, 97, 0.843);
+            }
+            .checked {
+                background-color: #86ea74;
+            }
+            .checked .check {
+                background-color: rgb(193, 50, 50);
+            }
+        </style>
+    </head>
+    <body
+        style="
+            background-color: #1b0044;
+            display: flex;
+            justify-content: center;
+        "
+    >
+        <!--Main div-->
+        <div
+            class="border-radius"
+            style="width: 70%; margin-top: 100px; background-color: #e9e9e7"
+        >
+            <!--Header div-->
+            <div
+                class=""
+                style="
+                    padding: 3px;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                    text-align: center;
+                    background-color: #522e91;
+                "
+            >
+                <h1 style="display: inline">مهامي</h1>
+                <button
+                    onclick="addTask()"
+                    id="addTask"
+                    class="circular"
+                    style="
+                        margin-right: 2px;
+                        margin-top: 2px;
+                        float: right;
+                        background-color: #fff;
+                    "
+                >
+                    <i style="color: #522e91" class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            <!--/Header div-->
+            <!--Body div-->
+            <div style="padding: 10px">
+                <!--Notes div-->
+                <div id="tasksContainer">
+                    <!--Note div-->
+                    <div class="note">
+                        <!--Buttons -->
+                        <div style="color: #fff">
+                            <button class="circular options edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button class="circular options check">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="circular options delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <!--/Buttons -->
+                        <!--Note details -->
+                        <div>
+                            <h5 class="todoText" style="margin: 2px">
+                                ضرب إياد
+                            </h5>
+                            <h5 style="margin: 2px">
+                                2/20/2025
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </h5>
+                        </div>
+                        <!--/Note details -->
+                    </div>
+                    <!--/Note div-->
+                    <!--Note div-->
+                    <div class="note">
+                        <!--Buttons -->
+                        <div style="color: #fff">
+                            <button class="circular options edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button class="circular options check">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="circular options delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <!--/Buttons -->
+                        <!--Note details -->
+                        <div>
+                            <h5 class="todoText" style="margin: 2px">
+                                ضرب إياد
+                            </h5>
+                            <h5 style="margin: 2px">
+                                2/20/2025
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </h5>
+                        </div>
+                        <!--/Note details -->
+                    </div>
+                    <!--/Note div-->
+                    <!--Note div-->
+                    <div class="note">
+                        <!--Buttons -->
+                        <div style="color: #fff">
+                            <button class="circular options edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button class="circular options check">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="circular options delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <!--/Buttons -->
+                        <!--Note details -->
+                        <div>
+                            <h5 class="todoText" style="margin: 2px">
+                                ضرب إياد
+                            </h5>
+                            <h5 style="margin: 2px">
+                                2/20/2025
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </h5>
+                        </div>
+                        <!--/Note details -->
+                    </div>
+                    <!--/Note div-->
+                </div>
+                <!--/Notes div-->
+            </div>
+            <!--/Body div-->
+        </div>
+        <!--/Main div-->
+    </body>
+    <script>
+        let tasksContainer = document.getElementById("tasksContainer");
+
+        function refreshTasks() {
+            let tasksString = localStorage.getItem("tasks");
+            tasks = JSON.parse(tasksString);
+            tasksContainer.innerHTML = "";
+            let index = 0;
+            for (task of tasks) {
+                let nTask = taskBody(
+                    index++,
+                    task.taskText,
+                    task.date,
+                    task.isChecked
+                );
+                tasksContainer.innerHTML += nTask;
+            }
+        }
+        function taskBody(
+            index = 0,
+            taskText = "",
+            taskDate = "",
+            checked = false
+        ) {
+            return `
+                    <!--Note div-->
+                    <div class="note ${checked ? "checked" : ""}">
+                        <!--Buttons -->
+                        <div style="color: #fff">
+                            <button
+                                class="circular options edit"
+                                onclick="updateTask(${index})"
+                            >
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button
+                                onclick="checkTask(${index})"
+                                class="circular options check"
+                                
+                            >
+                                ${
+                                    checked
+                                        ? '<i class="fa-solid fa-xmark"></i>'
+                                        : '<i class="fa-solid fa-check"></i>'
+                                }
+                            </button>
+                            <button
+                                onclick="deleteTask(${index})"
+                                class="circular options delete"
+                                
+                            >
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <!--/Buttons -->
+                        <!--Note details -->
+                        <div>
+                            <h5 class="todoText" style="margin: 2px">
+                                ${taskText}
+                            </h5>
+                            <h5 class ="date" style="margin: 2px">
+                                ${taskDate}
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </h5>
+                        </div>
+                        <!--/Note details -->
+                        </div>
+                        <!--/Note div-->`;
+        }
+        function addTask() {
+            let text = prompt("Input your task:", "make the homework");
+            if (text != null && text != "") {
+                let d = new Date();
+                taskObject = {
+                    taskText: `${text}`,
+                    date: `${d.toLocaleDateString(
+                        "en-GB"
+                    )} ${d.toLocaleTimeString()}`,
+                    isChecked: false,
+                };
+                tasks.push(taskObject);
+                storeTasksToLocalStorage();
+                refreshTasks();
+            }
+        }
+        function deleteTask(index) {
+            let isConfirmed = confirm(
+                "Are you sure to delete : " + tasks[index].taskText + " task!!"
+            );
+            if (isConfirmed) {
+                tasks.splice(index, 1);
+                storeTasksToLocalStorage();
+                refreshTasks();
+            }
+        }
+        function updateTask(index) {
+            let text = prompt("update your task :", tasks[index].taskText);
+            if (text) {
+                tasks[index].taskText = text;
+                storeTasksToLocalStorage();
+                refreshTasks();
+            }
+        }
+        function checkTask(index) {
+            tasks[index].isChecked = !tasks[index].isChecked;
+            console.log(tasks[index].isChecked);
+            storeTasksToLocalStorage();
+            refreshTasks();
+        }
+        function storeTasksToLocalStorage() {
+            let tasksString = JSON.stringify(tasks);
+            localStorage.setItem("tasks", tasksString);
+        }
+
+        let tasks = [];
+
+        refreshTasks();
+    </script>
+</html>
