@@ -219,7 +219,7 @@
 
         function refreshTasks() {
             let tasksString = localStorage.getItem("tasks");
-            tasks = JSON.parse(tasksString);
+            tasks = JSON.parse(tasksString) || []; // Ensure tasks is an array
             tasksContainer.innerHTML = "";
             let index = 0;
             for (task of tasks) {
@@ -232,6 +232,22 @@
                 tasksContainer.innerHTML += nTask;
             }
         }
+
+        /* function refreshTasks() {
+            let tasksString = localStorage.getItem("tasks");
+            tasks = JSON.parse(tasksString);
+            tasksContainer.innerHTML = "";
+            let index = 0;
+            for (task of tasks) {
+                let nTask = taskBody(
+                    index++,
+                    task.taskText,
+                    task.date,
+                    task.isChecked
+                );
+                tasksContainer.innerHTML += nTask;
+            }
+        } */
         function taskBody(
             index = 0,
             taskText = "",
@@ -294,6 +310,8 @@
                     )} ${d.toLocaleTimeString()}`,
                     isChecked: false,
                 };
+                // ✅ Make sure `tasks` exists
+                tasks = tasks || [];
                 tasks.push(taskObject);
                 storeTasksToLocalStorage();
                 refreshTasks();
@@ -328,8 +346,7 @@
             localStorage.setItem("tasks", tasksString);
         }
 
-        let tasks = [];
-
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
         refreshTasks();
     </script>
 </html>
