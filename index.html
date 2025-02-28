@@ -216,6 +216,9 @@
     </body>
     <script>
         let tasksContainer = document.getElementById("tasksContainer");
+        let tasks = [];
+        storeTasksToLocalStorage();
+        
 
         function refreshTasks() {
             let tasksString = localStorage.getItem("tasks");
@@ -328,7 +331,7 @@
             localStorage.setItem("tasks", tasksString);
         }
 
-        let tasks = [];
+        
 
         refreshTasks();
     </script>
